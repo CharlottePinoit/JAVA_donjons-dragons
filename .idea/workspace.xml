@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c0c8025-584f-4b11-8a0b-26cdd0f3ac81" name="Changes" comment="Issue #1: phase de mise en place, rédaction du readme me et diagramme UML">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="0c0c8025-584f-4b11-8a0b-26cdd0f3ac81" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,23 +13,23 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;CharlottePinoit&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "CharlottePinoit"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/CharlottePinoit/JAVA_donjons-dragons&quot;,
-    &quot;accountId&quot;: &quot;b11602bd-0a13-48bf-95bb-3305da1e8506&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/CharlottePinoit/JAVA_donjons-dragons",
+    "accountId": "b11602bd-0a13-48bf-95bb-3305da1e8506"
   }
-}</component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
-}</component>
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
   <component name="ProjectId" id="3ANxJcaKehfCY1fzJIv33GTejSH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -39,16 +39,13 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/user/Documents/charlotte_pinoit/Dev/JAVA_donjons&dragons",
     "onboarding.tips.debug.path": "/home/user/Documents/charlotte_pinoit/Dev/JAVA_donjons&dragons/Java_donjons_dragons/src/Main.java",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -66,20 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1772446761448</updated>
     </task>
-    <task id="LOCAL-00001" summary="Issue #1: phase de mise en place, rédaction du readme me et diagramme UML">
-      <option name="closed" value="true" />
-      <created>1772449094982</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1772449094982</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Issue #1: phase de mise en place, rédaction du readme me et diagramme UML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Issue #1: phase de mise en place, rédaction du readme me et diagramme UML" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
