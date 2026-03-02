@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5f846da-8664-4f11-9ec4-f5ad2b1b578d" name="Changes" comment="" />
+    <list default="true" id="0c0c8025-584f-4b11-8a0b-26cdd0f3ac81" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {
@@ -23,9 +28,9 @@
   }
 }]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
+  "associatedIndex": 1
 }]]></component>
-  <component name="ProjectId" id="3ANwtZ9C2QGKJbCtzXMhuSX6qes" />
+  <component name="ProjectId" id="3ANxJcaKehfCY1fzJIv33GTejSH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -37,7 +42,10 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/user/Documents/charlotte_pinoit/Dev/JAVA_donjons&dragons"
+    "onboarding.tips.debug.path": "/home/user/Documents/charlotte_pinoit/Dev/JAVA_donjons&dragons/Java_donjons_dragons/src/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -49,12 +57,23 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a5f846da-8664-4f11-9ec4-f5ad2b1b578d" name="Changes" comment="" />
-      <created>1772446551338</created>
+      <changelist id="0c0c8025-584f-4b11-8a0b-26cdd0f3ac81" name="Changes" comment="" />
+      <created>1772446761448</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1772446551338</updated>
+      <updated>1772446761448</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
