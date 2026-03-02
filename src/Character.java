@@ -4,6 +4,7 @@ public class Character{
     private int life;
     private int attack;
     private String name;
+    private int position;
 
 
     //constructeur
@@ -14,9 +15,7 @@ public class Character{
         this.name = name;
     }
     //getters & setters
-    public String getType() {
-        return type;
-    }
+    public String getType() {return type; }
     public void setType(String type){
         this.type = type;
     }
@@ -37,6 +36,12 @@ public class Character{
     }
     public void setName(String name){
         this.name = name;
+    }
+    public int getPosition(){
+        return position;
+    }
+    public void setPosition(int position) {
+        this.position = position;
     }
     //méthode pour fin du jeu
     public boolean isAlive(){
