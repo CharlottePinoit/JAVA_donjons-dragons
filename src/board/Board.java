@@ -1,3 +1,7 @@
+package board;
+
+import exceptions.OutOfBoardException;
+
 /**
  * Représente le plateau de jeu.
  * <p>
@@ -17,5 +21,13 @@ public class Board {
      */
     public int getSize(){
         return size;
+    }
+
+    //vérifie si la position est valide (pas de dépassement)
+    public void checkPosition(int position) throws OutOfBoardException {
+        if (position > size) {
+            throw new OutOfBoardException("Position " + position + " dépasse la taille du plateau (" + size + ")");
+        }
+
     }
 }

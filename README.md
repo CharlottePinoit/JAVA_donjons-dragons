@@ -131,7 +131,7 @@ Le projet est organisé autour des principales classes suivantes :
 - **Plateau** → tableau de 64 cases
 - **De** → gestion du lancer de dé
 - **Combat** → gère le combat entre personnage et ennemi
-- **Menu** → interaction utilisateur (affichage, saisie)
+- **ui.Menu** → interaction utilisateur (affichage, saisie)
 - **Jeu** → coordination générale des tours, déplacements, combats et fin de partie
 
 ---
@@ -147,7 +147,7 @@ Le projet est organisé autour des principales classes suivantes :
 
 ## 📌 Classes Principales
 
-### **Menu**
+### **ui.Menu**
 | Attribut          | Type       |
 |-------------------|------------|
 | scanner           | Scanner    |
@@ -155,16 +155,16 @@ Le projet est organisé autour des principales classes suivantes :
 | Méthode                          | Retour  |
 |----------------------------------|---------|
 | displayMainMenu()                | void    |
-| selectCharacter()                | Character |
+| selectCharacter()                | characters.Character |
 
 ---
 
-### **Game**
+### **game.Game**
 | Attribut          | Type       |
 |-------------------|------------|
-| board             | Board      |
-| player            | Character  |
-| dice              | Dice       |
+| board             | board.Board      |
+| player            | characters.Character  |
+| dice              | board.Dice       |
 | isGameOver        | boolean    |
 
 | Méthode                          | Retour  |
@@ -177,7 +177,7 @@ Le projet est organisé autour des principales classes suivantes :
 
 ---
 
-### **Character**
+### **characters.Character**
 | Attribut                     | Type                |
 |------------------------------|---------------------|
 | name                         | String              |
@@ -185,7 +185,7 @@ Le projet est organisé autour des principales classes suivantes :
 | life                         | int                 |
 | maxLife                      | int                 |
 | position                     | int                 |
-| offensiveEquipment           | OffensiveEquipment  |
+| items.offensiveEquipment           | OffensiveEquipment  |
 | defensiveEquipment           | DefensiveEquipment  |
 
 | Méthode                          | Retour  |
@@ -199,7 +199,7 @@ Le projet est organisé autour des principales classes suivantes :
 
 ## 🧙 Personnages
 
-### **Warrior** (héritage : Character)
+### **Warrior** (héritage : characters.Character)
 | Attribut          | Type       |
 |-------------------|------------|
 | baseLife          | int        |
@@ -207,11 +207,11 @@ Le projet est organisé autour des principales classes suivantes :
 
 | Méthode                          | Retour  |
 |----------------------------------|---------|
-| equipSpell(Spell spell)          | void    |
+| equipSpell(items.offensiveEquipment.spell.Spell items.offensiveEquipment.spell)          | void    |
 
 ---
 
-### **Wizard** (héritage : Character)
+### **Wizard** (héritage : characters.Character)
 | Attribut          | Type       |
 |-------------------|------------|
 | baseLife          | int        |
@@ -219,13 +219,13 @@ Le projet est organisé autour des principales classes suivantes :
 
 | Méthode                          | Retour  |
 |----------------------------------|---------|
-| equipWeapon(Weapon weapon)       | void    |
+| equipWeapon(items.offensiveEquipment.weapon.Weapon items.offensiveEquipment.weapon)       | void    |
 
 ---
 
 ## 🗺️ Plateau et Cases
 
-### **Board**
+### **board.Board**
 | Attribut          | Type       |
 |-------------------|------------|
 | squares           | Square[64] |
@@ -264,45 +264,45 @@ Le projet est organisé autour des principales classes suivantes :
 
 | Méthode                          | Retour  |
 |----------------------------------|---------|
-| isCompatible(Character character)| boolean |
+| isCompatible(characters.Character character)| boolean |
 
 ---
 
-### **Weapon** (héritage : OffensiveEquipment)
+### **items.offensiveEquipment.weapon.Weapon** (héritage : OffensiveEquipment)
 | Attribut          | Type       |
 |-------------------|------------|
 | attackBonus       | int        |
 
 ---
 
-#### **Mace** (héritage : Weapon)
+#### **items.offensiveEquipment.weapon.Mace** (héritage : items.offensiveEquipment.weapon.Weapon)
 | Attribut          | Type       |
  |-------------------|------------|
 | attackBonus       | int = 3    |
 
 ---
 
-#### **Sword** (héritage : Weapon)
+#### **items.offensiveEquipment.weapon.Sword** (héritage : items.offensiveEquipment.weapon.Weapon)
 | Attribut          | Type       |
  |-------------------|------------|
 | attackBonus       | int = 5    |
 
 ---
 
-### **Spell** (héritage : OffensiveEquipment)
+### **items.offensiveEquipment.spell.Spell** (héritage : OffensiveEquipment)
 | Attribut          | Type       |
 |-------------------|------------|
 | attackBonus       | int        |
 
 ---
-#### **LightBolt** (héritage : Spell)
+#### **LightBolt** (héritage : items.offensiveEquipment.spell.Spell)
 | Attribut          | Type       |
  |-------------------|------------|
 | attackBonus       | int = 2    |
 
 ---
 
-#### **Fireball** (héritage : Spell)
+#### **items.offensiveEquipment.spell.Fireball** (héritage : items.offensiveEquipment.spell.Spell)
 | Attribut          | Type       |
  |-------------------|------------|
 | attackBonus       | int = 7    |
@@ -317,7 +317,7 @@ Le projet est organisé autour des principales classes suivantes :
 
 | Méthode                          | Retour  |
 |----------------------------------|---------|
-| use(Character character)         | void    |
+| use(characters.Character character)         | void    |
 
 ---
 
@@ -329,7 +329,7 @@ Le projet est organisé autour des principales classes suivantes :
 
 | Méthode                          | Retour  |
 |----------------------------------|---------|
-| use(Character character)         | void    |
+| use(characters.Character character)         | void    |
 
 ---
 
@@ -346,7 +346,7 @@ Le projet est organisé autour des principales classes suivantes :
 
 ---
 
-#### **BigHealthPotion** (héritage : Potion)
+#### **items.consumable.BigHealthPotion** (héritage : Potion)
 | Attribut          | Type       |
  |-------------------|------------|
 | lifeBonus         | int = 5    |
@@ -355,7 +355,7 @@ Le projet est organisé autour des principales classes suivantes :
 
 ## 🎲 Divers
 
-### **Dice**
+### **board.Dice**
 | Attribut          | Type       |
 |-------------------|------------|
 | sides             | int        |

@@ -1,9 +1,15 @@
-import java.util.Scanner;
+package game;
+
+import board.Board;
+import board.Dice;
+import characters.Character;
+import exceptions.OutOfBoardException;
+import ui.Menu;
 
 /**
  * Gère la logique principale du jeu.
  * <p>
- * La classe Game coordonne le déroulement du jeu : gestion du plateau,
+ * La classe game.Game coordonne le déroulement du jeu : gestion du plateau,
  * des déplacements du perso, des tours de jeu et de la boucle principale
  * via le menu. Elle utilise les classes {@link Menu}, {@link Board}, {@link Dice}
  * et {@link Character}.
@@ -11,8 +17,8 @@ import java.util.Scanner;
  */
 public class Game{
     /** Le perso joué par l'utilisateur. */
-    private Character player;
-    /** Menu pour interagir avec l'utilisateur. */
+    private characters.Character player;
+    /** ui.Menu pour interagir avec l'utilisateur. */
     private final Menu menu;
     /** Plateau de jeu. */
     private final Board board;
@@ -23,7 +29,7 @@ public class Game{
     /**
      * Initialise le jeu avec le menu fourni.
      * <p>
-     * Le plateau et le dé sont créés automatiquement à la création de l'objet Game.
+     * Le plateau et le dé sont créés automatiquement à la création de l'objet game.Game.
      * </p>
      * @param menu le menu pour gérer les interactions utilisateur
      */
@@ -88,8 +94,13 @@ public class Game{
             System.out.println("Vous avez fait un: " +roll);
             int newPosition = player.getPosition() + roll;
 
-            if (newPosition > board.getSize()){
-                newPosition = board.getSize();
+            try {
+                board.checkPosition(newPosition);
+                player.setPosition(newPosition);
+
+            } catch (OutOfBoardException e) {
+                System.out.println(e.getMessage());
+                player.setPosition(board.getSize());
             }
             player.setPosition(newPosition);
             System.out.println("Vous êtes sur la case " + player.getPosition() + "/" + board.getSize());

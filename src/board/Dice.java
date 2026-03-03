@@ -1,3 +1,5 @@
+package board;
+
 import java.util.Random;
 /**
  * Représente un dé virtuel à N faces.
