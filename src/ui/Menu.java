@@ -1,3 +1,9 @@
+package ui;
+
+import characters.Character;
+import characters.Warrior;
+import characters.Wizard;
+
 import java.util.Scanner;
 /**
  * Gère l'interaction avec l'utilisateur.
@@ -31,20 +37,20 @@ public class Menu{
     /**
      * crée un perso en demandant à l'utilisateur le type et le nom.
      *
-     * @return un nouvel objet {@link Character} selon le choix
+     * @return un nouvel objet {@link characters.Character} selon le choix
      */
-    public Character createCharacter() {
+    public characters.Character createCharacter() {
         scanner.nextLine();
         System.out.println("\nChoisissez votre type de personnage :");
         System.out.println("1 - Warrior");
-        System.out.println("   {====}");
-        System.out.println("  (• •)");
-        System.out.println("   \\___/");
+        System.out.println(" {====}");
+        System.out.println(" (• •)");
+        System.out.println("  \\___/");
         System.out.println("2 - Wizard");
         System.out.println("     /\\");
         System.out.println("    /__\\");
         System.out.println("   (• •)");
-        System.out.println("    /___\\");
+        System.out.println("   /___\\");
         System.out.print("Votre choix : ");
         int choice = scanner.nextInt();
         scanner.nextLine();
@@ -53,11 +59,11 @@ public class Menu{
         String name = scanner.nextLine();
 
         return switch (choice) {
-            case 1 -> new Character("Warrior", 10, 5, name);
-            case 2 -> new Character("Wizard", 6, 8, name);
+            case 1 -> new Warrior(name);
+            case 2 -> new Wizard(name);
             default -> {
                 System.out.println("Choix invalide, création d'un Warrior par défaut.");
-                yield new Character("Warrior", 10, 5, name);
+                yield new Warrior(name);
             }
         };
     }

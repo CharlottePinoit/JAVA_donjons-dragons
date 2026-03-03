@@ -1,3 +1,5 @@
+package characters;
+
 /**
  * Représente un personnage jouable.
  * <p>
@@ -6,9 +8,8 @@
  * La position est utilisée pour suivre l'avancement du perso dans le jeu.
  * </p>
  */
-public class Character{
+public abstract class Character{
     //attributs privés
-    private String type;  /** type du perso (warrior ou wizard) */
     private int life; /** points de vie actuels du perso */
     private int attack; /** valeur d'attaque du perso */
     private String name; /** nom du perso */
@@ -17,13 +18,11 @@ public class Character{
     /** constructeur
      * Crée un nouveau perso avec les caractéristiques spécifiées.
      *
-     * @param type   le type du perso
      * @param life   les points de vie de base
      * @param attack la valeur d'attaque du perso
      * @param name   le nom du perso
      */
-    public Character(String type, int life, int attack, String name){
-        this.type = type;
+    public Character( String name, int life, int attack){
         this.life = life;
         this.attack = attack;
         this.name = name;
@@ -35,15 +34,13 @@ public class Character{
      *
      * @return le type du perso
      */
-    public String getType() {return type; }
+    //public String getType() {return type; }
     /**
      * Définit le type du perso.
      *
      * @param type le nouveau type du perso
      */
-    public void setType(String type){
-        this.type = type;
-    }
+    //public void setType(String type){this.type = type;}
     /**
      * Retourne les points de vie du perso.
      *
@@ -126,17 +123,10 @@ public class Character{
      */
     @Override
     public String toString() {
-        return "Character{" +
+        return "characters.Character{" +
                 "name='" + name + '\'' +
-                ", type='" + type + '\'' +
                 ", attack=" + attack +
                 ", life=" + life +
                 '}';
     }
-
-
-
-
-
-
 }

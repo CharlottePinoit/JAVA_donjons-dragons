@@ -1,3 +1,6 @@
+import game.Game;
+import ui.Menu;
+
 /**
  * Point d'entrée du jeu Donjons & Dragons en Java.
  * <p>
