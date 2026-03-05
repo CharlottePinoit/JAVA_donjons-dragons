@@ -1,13 +1,28 @@
 package items.offensiveEquipment.weapon;
 
+/**
+ * Represents a Mace weapon.
+ * <p>
+ * The Mace is a specific type of {@link Weapon} with a fixed attack bonus of 3.
+ * It can only be equipped by {@link characters.Warrior} characters.
+ * </p>
+ */
 public class Mace extends Weapon {
 
+    /**
+     * Creates a new Mace with a default attack bonus of 3.
+     */
     public Mace() {
         super(3);
     }
 
+    /**
+     * Returns a string representation of the Mace.
+     *
+     * @return a string containing the attack bonus
+     */
     @Override
     public String toString() {
-        return "Mace {Bonus d'attaque=" + attackBonus + "}";
+        return "Mace {Attack Bonus=" + attackBonus + "}";
     }
 }

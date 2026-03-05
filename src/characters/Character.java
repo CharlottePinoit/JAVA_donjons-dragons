@@ -1,129 +1,130 @@
 package characters;
 
 /**
- * Représente un personnage jouable.
+ * Represents a playable character.
  * <p>
- * Chaque perso a un type (Guerrier ou Magicien), un nom, des points de vie,
- * une valeur d'attaque et une position sur le plateau.
- * La position est utilisée pour suivre l'avancement du perso dans le jeu.
+ * Each character has a name, life points, an attack value,
+ * and a position on the game board.
+ * The position is used to track the character's progression
+ * during the game.
  * </p>
  */
-public abstract class Character{
-    //attributs privés
-    private int life; /** points de vie actuels du perso */
-    private int attack; /** valeur d'attaque du perso */
-    private String name; /** nom du perso */
-    private int position; /** position actuelle du perso sur le plateau */
+public abstract class Character {
 
-    /** constructeur
-     * Crée un nouveau perso avec les caractéristiques spécifiées.
+    /** Current life points of the character */
+    private int life;
+
+    /** Attack value of the character */
+    private int attack;
+
+    /** Name of the character */
+    private String name;
+
+    /** Current position of the character on the board */
+    private int position;
+
+    /**
+     * Creates a new character with the specified attributes.
      *
-     * @param life   les points de vie de base
-     * @param attack la valeur d'attaque du perso
-     * @param name   le nom du perso
+     * @param name   the character's name
+     * @param life   the base life points
+     * @param attack the attack value
      */
-    public Character( String name, int life, int attack){
+    public Character(String name, int life, int attack) {
         this.life = life;
         this.attack = attack;
         this.name = name;
     }
-    //getters & setters
 
     /**
-     * Retourne le type du perso.
+     * Returns the current life points.
      *
-     * @return le type du perso
+     * @return the life points
      */
-    //public String getType() {return type; }
-    /**
-     * Définit le type du perso.
-     *
-     * @param type le nouveau type du perso
-     */
-    //public void setType(String type){this.type = type;}
-    /**
-     * Retourne les points de vie du perso.
-     *
-     * @return les points de vie actuels
-     */
-    public int getLife(){
+    public int getLife() {
         return life;
     }
+
     /**
-     * Modifie les points de vie du perso.
+     * Updates the life points.
      *
-     * @param life les nouveaux points de vie
+     * @param life the new life value
      */
-    public void setLife(int life){this.life = life;}
+    public void setLife(int life) {
+        this.life = life;
+    }
+
     /**
-     * Retourne la valeur d'attaque du perso.
+     * Returns the attack value.
      *
-     * @return la valeur d'attaque
+     * @return the attack value
      */
-    public int getAttack(){
+    public int getAttack() {
         return attack;
     }
+
     /**
-     * Modifie la valeur d'attaque du perso.
+     * Updates the attack value.
      *
-     * @param attack la nouvelle valeur d'attaque
+     * @param attack the new attack value
      */
-    public void setAttack(int attack){
+    public void setAttack(int attack) {
         this.attack = attack;
     }
+
     /**
-     * Retourne le nom du perso.
+     * Returns the character's name.
      *
-     * @return le nom
+     * @return the name
      */
     public String getName() {
         return name;
     }
+
     /**
-     * Modifie le nom du perso.
+     * Updates the character's name.
      *
-     * @param name le nouveau nom
+     * @param name the new name
      */
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
+
     /**
-     * Retourne la position actuelle du perso sur le plateau.
+     * Returns the current position on the board.
      *
-     * @return la position (case actuelle)
+     * @return the current position
      */
-    public int getPosition(){
+    public int getPosition() {
         return position;
     }
+
     /**
-     * Modifie la position actuelle du perso sur le plateau.
+     * Updates the position on the board.
      *
-     * @param position la nouvelle position
+     * @param position the new position
      */
     public void setPosition(int position) {
         this.position = position;
     }
 
-
-    //méthode pour fin du jeu
     /**
-     * Vérifie si le perso est toujours en vie.
+     * Checks if the character is still alive.
      *
-     * @return {@code true} si les points de vie > 0, sinon {@code false}
+     * @return {@code true} if life points are greater than 0, otherwise {@code false}
      */
-    public boolean isAlive(){
+    public boolean isAlive() {
         return life > 0;
     }
 
-    //pour redéfinir le toString comme on veut
     /**
-     * Retourne une représentation textuelle du perso.
+     * Returns a string representation of the character.
      *
-     * @return chaîne contenant le nom, le type, les points de vie et l'attaque
+     * @return a string containing the name, life, and attack values
      */
     @Override
     public String toString() {
-        return "characters.Character{" +
+        return "Character{" +
                 "name='" + name + '\'' +
                 ", attack=" + attack +
                 ", life=" + life +

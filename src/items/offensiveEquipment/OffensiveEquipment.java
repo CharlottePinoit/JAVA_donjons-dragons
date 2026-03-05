@@ -1,6 +1,12 @@
 package items.offensiveEquipment;
 import characters.Character;
-
+/**
+ * Represents an offensive equipment item.
+ * <p>
+ * Offensive equipment provides an attack bonus to a character.
+ * Subclasses must define whether the equipment is compatible with a given character type.
+ * </p>
+ */
 public abstract class OffensiveEquipment {
     protected int attackBonus;
 

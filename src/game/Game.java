@@ -7,31 +7,35 @@ import exceptions.OutOfBoardException;
 import ui.Menu;
 
 /**
- * Gère la logique principale du jeu.
+ * Manages the main game logic.
  * <p>
- * La classe game.Game coordonne le déroulement du jeu : gestion du plateau,
- * des déplacements du perso, des tours de jeu et de la boucle principale
- * via le menu. Elle utilise les classes {@link Menu}, {@link Board}, {@link Dice}
- * et {@link Character}.
+ * The {@link Game} class coordinates the flow of the game: board management,
+ * character movement, turn handling, and the main loop via the {@link Menu}.
+ * It uses the {@link Board}, {@link Dice}, and {@link Character} classes.
  * </p>
  */
-public class Game{
-    /** Le perso joué par l'utilisateur. */
-    private characters.Character player;
-    /** ui.Menu pour interagir avec l'utilisateur. */
+public class Game {
+
+    /** The character played by the user */
+    private Character player;
+
+    /** Menu for interacting with the user */
     private final Menu menu;
-    /** Plateau de jeu. */
+
+    /** Game board */
     private final Board board;
-    /** Dé virtuel pour les déplacements du perso. */
+
+    /** Virtual dice used for character movement */
     private final Dice dice;
 
-    //contructeur
+    //constructeur
     /**
-     * Initialise le jeu avec le menu fourni.
+     * Initializes the game with the provided menu.
      * <p>
-     * Le plateau et le dé sont créés automatiquement à la création de l'objet game.Game.
+     * The board and dice are automatically created when the {@link Game} object is instantiated.
      * </p>
-     * @param menu le menu pour gérer les interactions utilisateur
+     *
+     * @param menu the menu used to manage user interactions
      */
     public Game(Menu menu) {
         this.menu = menu;
@@ -41,10 +45,10 @@ public class Game{
     }
     //lancer le jeu
     /**
-     * Démarre la boucle principale du jeu.
+     * Starts the main game loop.
      * <p>
-     * Affiche le menu principal en continu et gère les choix de l'utilisateur :
-     * créer un perso, démarrer une partie ou quitter le jeu.
+     * Continuously displays the main menu and handles user choices:
+     * create a character, start a game, or exit.
      * </p>
      */
     public void start(){
@@ -75,11 +79,11 @@ public class Game{
     }
     //logique plateau et déplacement
     /**
-     * Gère la logique du plateau et le déplacement du perso.
+     * Handles board logic and character movement.
      * <p>
-     * Le personnage commence à la position 1 et avance sur le plateau en lançant
-     * le dé à chaque tour. La position maximale est celle du plateau.
-     * À la fin du plateau, le joueur peut choisir de recommencer la partie.
+     * The character starts at position 1 and moves forward on the board
+     * by rolling the dice each turn. The maximum position is the board's size.
+     * When reaching the end of the board, the player can choose to restart the game.
      * </p>
      */
     private void playGame() {

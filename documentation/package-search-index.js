@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"board"},{"l":"characters"},{"l":"exceptions"},{"l":"game"},{"l":"items.consumable"},{"l":"items.defensiveEquiment"},{"l":"items.offensiveEquipment"},{"l":"items.offensiveEquipment.spell"},{"l":"items.offensiveEquipment.weapon"},{"l":"ui"}];updateSearchResults();

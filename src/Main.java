@@ -17,9 +17,8 @@ import ui.Menu;
  */
 public class Main {
     /**
-     * Méthode principale qui lance le jeu.
      *
-     * @param args arguments passés à l'exécution (non utilisés)
+     * @param args
      */
     public static void main(String[] args) {
         Menu menu = new Menu();

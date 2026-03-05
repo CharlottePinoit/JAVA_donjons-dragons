@@ -1,33 +1,37 @@
 package board;
-
 import exceptions.OutOfBoardException;
-
 /**
- * Représente le plateau de jeu.
+ * Represents the game board.
  * <p>
- * Le plateau est constitué d'un nombre fixe de cases.
- * Il sert à suivre la progression du perso sur le terrain.
+ * The board contains a fixed number of squares and is used
+ * to track the character's progression during the game.
  * </p>
  */
 public class Board {
 
-    /** Nombre total de cases */
+    /** Total number of squares on the board */
     private final int size = 64;
 
     /**
-     * Retourne le nombre de cases du plateau.
+     * Returns the total number of squares on the board.
      *
-     * @return le nombre de cases (64)
+     * @return the number of squares (64)
      */
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 
-    //vérifie si la position est valide (pas de dépassement)
+    /**
+     * Checks if a position is within the board limits.
+     *
+     * @param position the position to check
+     * @throws OutOfBoardException if the position exceeds the board size
+     */
     public void checkPosition(int position) throws OutOfBoardException {
         if (position > size) {
-            throw new OutOfBoardException("Position " + position + " dépasse la taille du plateau (" + size + ")");
+            throw new OutOfBoardException(
+                    "Position " + position + " exceeds the board size (" + size + ")"
+            );
         }
-
     }
 }

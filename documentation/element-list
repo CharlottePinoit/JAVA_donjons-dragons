@@ -1,0 +1,11 @@
+unnamed package
+board
+characters
+exceptions
+game
+items.consumable
+items.defensiveEquiment
+items.offensiveEquipment
+items.offensiveEquipment.spell
+items.offensiveEquipment.weapon
+ui

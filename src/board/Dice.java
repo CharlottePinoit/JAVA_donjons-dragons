@@ -1,35 +1,37 @@
 package board;
 
 import java.util.Random;
+
 /**
- * Représente un dé virtuel à N faces.
+ * Represents a virtual dice.
  * <p>
- * Dans cette version, le dé possède un nombre fixe de faces (6) et peut être lancé
- * pour générer un nombre aléatoire compris entre 1 et 6 inclus.
+ * The dice has a fixed number of sides (6) and can be rolled
+ * to generate a random number between 1 and 6.
  * </p>
  */
 public class Dice {
 
-    /** nombre de faces du dé. */
+    /** Number of sides of the dice. */
     private final int sides = 6;
 
-    /** générateur de nombres aléatoires pour simuler le lancer de dé. */
+    /** Random number generator used to simulate the dice roll. */
     private final Random random;
 
     /**
-     * crée un dé virtuel avec un générateur de nombres aléatoires.
-     * la face maximale est définie par l'attribut {@link #sides}.
+     * Creates a virtual dice with a random number generator.
+     * The maximum face value is defined by the {@link #sides} attribute.
      */
     public Dice() {
         random = new Random();
     }
 
     /**
-     * lance le dé et retourne un résultat aléatoire entre 1 et le nombre de faces inclus.
+     * Rolls the dice and returns a random result between
+     * 1 and the number of sides (inclusive).
      *
-     * @return le résultat du lancer (entre 1 et 6)
+     * @return the result of the dice roll (between 1 and 6)
      */
     public int roll() {
-        return random.nextInt(sides) +1;
+        return random.nextInt(sides) + 1;
     }
 }
