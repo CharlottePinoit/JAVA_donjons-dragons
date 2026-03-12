@@ -13,7 +13,6 @@ choisir la classe du personnage, nommer le personnage, lancer un dé, ou quitter
 ---
 
 ## Table des matières
-
 1. [Règles du jeu](#règles-du-jeu)
 2. [Le plateau de jeu](#le-plateau-de-jeu)
 3. [Personnages](#personnages)
@@ -23,7 +22,9 @@ choisir la classe du personnage, nommer le personnage, lancer un dé, ou quitter
 7. [Déroulement du jeu](#déroulement-du-jeu)
 8. [Règles des combats](#règles-des-combats)
 9. [Fin de partie](#fin-de-partie)
-
+10. [Installation et exécution](#installation-et-exécution)
+11. [UML & Organisation du projet](#uml--organisation-du-projet)
+12. [Diagramme UML](#diagramme-uml---jeu-donjons-et-dragons)
 ---
 
 ## Règles du jeu
@@ -108,7 +109,7 @@ Selon la case atteinte :
 
 - Le personnage frappe l’ennemi selon son attaque + bonus d’équipement.
 - Si l’ennemi tombe à 0 vie → mort et disparition du plateau
-- Sinon l’ennemi riposte et diminue la vie du personnage
+- Sinon l’ennemi riposte et diminue la vie du personnage, puis s'enfuit
 - La vie de l’ennemi reste **persistante** sur sa case
 
 ---
@@ -118,6 +119,28 @@ Selon la case atteinte :
 - **Gagnée** : le joueur atteint la fin du plateau
 - **Perdue** : le joueur perd tous ses points de vie
 
+---
+
+## Installation et exécution
+
+### Prérequis
+
+- [Java JDK](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html) 17 ou supérieur installé
+- Un terminal ou invite de commandes
+- (Optionnel) Un IDE comme IntelliJ, Eclipse ou VS Code pour modifier/ouvrir le projet
+1. Cloner le projet :
+   ```bash
+   git clone https://github.com/CharlottePinoit/JAVA_donjons-dragons.git
+   cd JAVA_donjons-dragons
+   ```
+1. Compiler le projet :
+   ```bash
+   javac -d out -sourcepath src src/**/*.java
+   ```
+1. Compiler le projet : depuis le dossier out
+   ```bash
+   java Main
+   ```
 ---
 
 ## UML & Organisation du projet
@@ -134,13 +157,6 @@ Le projet est organisé autour des principales classes suivantes :
 - **ui.Menu** → interaction utilisateur (affichage, saisie)
 - **Jeu** → coordination générale des tours, déplacements, combats et fin de partie
 
----
-
-## Installation et exécution
-
-1. Cloner le projet :
-   ```bash
-   git clone <URL_DU_REPO>
 # Diagramme UML - Jeu Donjons et Dragons
 
 ---
