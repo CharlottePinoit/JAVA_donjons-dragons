@@ -3,6 +3,7 @@ package ui;
 import characters.Character;
 import characters.Warrior;
 import characters.Wizard;
+import db.DatabaseManager;
 
 import java.util.Scanner;
 /**
@@ -79,6 +80,7 @@ public class Menu{
             System.out.println("1 - Afficher les infos");
             System.out.println("2 - Modifier le nom");
             System.out.println("3 - Retour au menu principal");
+            System.out.println("4 - Afficher les personnages enregistrés");
             System.out.print("Votre choix : ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -89,9 +91,11 @@ public class Menu{
                     System.out.print("Nouveau nom : ");
                     String newName = scanner.nextLine();
                     character.setName(newName);
+                    DatabaseManager.editHero(character);
                     System.out.println("Nom modifié !");
                 }
                 case 3 -> done = true;
+                case 4 -> DatabaseManager.getHeroes();
                 default -> System.out.println("Choix invalide.");
             }
         }

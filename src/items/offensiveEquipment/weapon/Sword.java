@@ -1,5 +1,7 @@
 package items.offensiveEquipment.weapon;
 
+import characters.Warrior;
+
 /**
  * Represents a Sword weapon.
  * <p>
@@ -13,7 +15,11 @@ public class Sword extends Weapon {
      * Creates a new Sword with a default attack bonus of 5.
      */
     public Sword() {
-        super(5);
+        super(5, "épée");
+    }
+    @Override
+    public boolean isCompatibleWith(characters.Character character) {
+        return character instanceof Warrior;
     }
 
     /**
@@ -23,6 +29,6 @@ public class Sword extends Weapon {
      */
     @Override
     public String toString() {
-        return "Sword {Attack Bonus=" + attackBonus + "}";
+        return super.toString(); // Utilise la méthode toString() de Weapon
     }
 }

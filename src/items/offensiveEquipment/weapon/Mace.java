@@ -1,5 +1,7 @@
 package items.offensiveEquipment.weapon;
 
+import characters.Warrior;
+
 /**
  * Represents a Mace weapon.
  * <p>
@@ -13,7 +15,11 @@ public class Mace extends Weapon {
      * Creates a new Mace with a default attack bonus of 3.
      */
     public Mace() {
-        super(3);
+        super(3, "Massue");
+    }
+    @Override
+    public boolean isCompatibleWith(characters.Character character) {
+        return character instanceof Warrior;
     }
 
     /**
@@ -23,6 +29,6 @@ public class Mace extends Weapon {
      */
     @Override
     public String toString() {
-        return "Mace {Attack Bonus=" + attackBonus + "}";
+        return super.toString(); // Utilise la méthode toString() de Weapon
     }
 }

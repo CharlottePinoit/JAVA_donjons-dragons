@@ -1,5 +1,6 @@
 package items.offensiveEquipment.spell;
 
+import characters.Wizard;
 import items.offensiveEquipment.spell.Spell;
 /**
  * Represents the LightBold spell.
@@ -13,7 +14,7 @@ public class LightBold extends Spell {
      * Creates a new LightBold spell with a default attack bonus of 2.
      */
     public LightBold() {
-        super(2);
+        super(2, "sort éclair");
     }
     /**
      * Returns a string representation of the LightBold spell.
@@ -21,7 +22,11 @@ public class LightBold extends Spell {
      * @return a string containing the attack bonus
      */
     @Override
+    public boolean isCompatibleWith(characters.Character character) {
+        return character instanceof Wizard;
+    }
+    @Override
     public String toString() {
-        return "LightBold {Bonus d'attaque=" + attackBonus + "}";
+        return super.toString();
     }
 }

@@ -14,9 +14,11 @@ public class Weapon extends OffensiveEquipment {
      *
      * @param attackBonus the attack bonus of the weapon
      */
-    public Weapon(int attackBonus) {
-        super(attackBonus);
+    public Weapon(int attackBonus, String name) {
+
+        super(attackBonus, name);
     }
+
     /**
      * Checks whether the weapon can be equipped by the given character.
      * <p>
@@ -28,8 +30,9 @@ public class Weapon extends OffensiveEquipment {
      */
     @Override
     public boolean isCompatibleWith(Character character) {
-       return character instanceof Warrior;
+        return character instanceof Warrior;
     }
+
     /**
      * Returns a string representation of the weapon.
      *
@@ -37,6 +40,6 @@ public class Weapon extends OffensiveEquipment {
      */
     @Override
     public String toString() {
-        return "Weapon {Bonus d'attaque=" + attackBonus + "}";
+        return name + " {Bonus d'attaque=" + attackBonus + "}"; // Utilise le nom de l'arme
     }
 }

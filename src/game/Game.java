@@ -3,15 +3,36 @@ package game;
 import board.Board;
 import board.Dice;
 import characters.Character;
+import db.DatabaseManager;
 import exceptions.OutOfBoardException;
 import ui.Menu;
+import board.cell.Cell;
+import board.cell.EmptyCell;
+import board.cell.EnemyCell;
+import board.cell.ItemCell;
+import characters.Character;
+import enemies.Dragon;
+import enemies.Goblin;
+import enemies.Sorcerer;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
- * Manages the main game logic.
+ * Manages the main game logic for the Dungeons & Dragons-inspired board game.
  * <p>
- * The {@link Game} class coordinates the flow of the game: board management,
- * character movement, turn handling, and the main loop via the {@link Menu}.
- * It uses the {@link Board}, {@link Dice}, and {@link Character} classes.
+ * The {@link Game} class coordinates the flow of the game: it handles the game board,
+ * character movement, turn handling, and interactions via the {@link Menu}.
+ * It uses the {@link Board} to represent the game map, {@link Dice} for movement rolls,
+ * and {@link Character} to represent the player.
+ * </p>
+ * <p>
+ * Responsibilities include:
+ * <ul>
+ *     <li>Starting and managing the main game loop</li>
+ *     <li>Handling player choices via the menu</li>
+ *     <li>Moving the character and resolving interactions on each board cell</li>
+ *     <li>Checking for game-over and victory conditions</li>
+ * </ul>
  * </p>
  */
 public class Game {
@@ -58,6 +79,7 @@ public class Game {
             switch (choice) {
                 case 1 -> {
                     player = menu.createCharacter();
+                    DatabaseManager.createHero(player);
                     System.out.println("\nPersonnage créé : " + player);
                     menu.characterMenu(player);
                 }
@@ -79,11 +101,12 @@ public class Game {
     }
     //logique plateau et déplacement
     /**
-     * Handles board logic and character movement.
+     * Handles the gameplay logic and character movement on the board.
      * <p>
-     * The character starts at position 1 and moves forward on the board
-     * by rolling the dice each turn. The maximum position is the board's size.
-     * When reaching the end of the board, the player can choose to restart the game.
+     * Each turn, the player rolls the dice to determine the number of cells
+     * to move forward. When the player lands on a cell, the corresponding
+     * interaction occurs (empty, enemy, or item). The game ends when the
+     * player reaches the end of the board or loses all life points.
      * </p>
      */
     private void playGame() {
@@ -109,7 +132,19 @@ public class Game {
             player.setPosition(newPosition);
             System.out.println("Vous êtes sur la case " + player.getPosition() + "/" + board.getSize());
 
-            if (player.getPosition() == board.getSize()) {
+            // Interaction avec la case actuelle
+            Cell currentCell = board.getCell(player.getPosition());
+            //System.out.println("Vous tombez sur : " + currentCell.toString());
+            currentCell.interact(player);
+
+            // Enregistrer l'état du personnage après chaque tour
+            DatabaseManager.editHero(player);
+
+            // Vérification de la fin de partie
+            if (!player.isAlive()) {
+                System.out.println("\nGame Over ! Vous avez perdu tous vos points de vie.");
+                finished = true;
+            } else if (player.getPosition() == board.getSize()) {
                 System.out.println("\nFélicitation ! Vous avez traversé la terre du milieu sans mourir !");
                 finished = true;
                 String answer = menu.askReplay();

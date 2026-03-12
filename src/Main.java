@@ -1,3 +1,4 @@
+import db.DatabaseManager;
 import game.Game;
 import ui.Menu;
 
@@ -21,6 +22,9 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
+        // Teste la connexion à la base de données avant de lancer le jeu
+        DatabaseManager.testConnection();
+
         Menu menu = new Menu();
         Game game = new Game(menu);
 

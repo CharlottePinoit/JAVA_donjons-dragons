@@ -16,9 +16,10 @@ public class Spell extends OffensiveEquipment {
      *
      * @param attackBonus the attack bonus of the spell
      */
-    public Spell(int attackBonus) {
-        super(attackBonus);
+    public Spell(int attackBonus, String name) {
+        super(attackBonus, name);
     }
+
     /**
      * Checks whether the spell can be equipped by the given character.
      * <p>
@@ -32,6 +33,7 @@ public class Spell extends OffensiveEquipment {
     public boolean isCompatibleWith(Character character) {
         return character instanceof Wizard;
     }
+
     /**
      * Returns a string representation of the spell.
      *
@@ -39,6 +41,6 @@ public class Spell extends OffensiveEquipment {
      */
     @Override
     public String toString() {
-        return "Spell {Bonus d'attaque=" + attackBonus + "}";
+        return name + " {Bonus d'attaque=" + attackBonus + "}"; // Utilise le nom du sort
     }
 }
