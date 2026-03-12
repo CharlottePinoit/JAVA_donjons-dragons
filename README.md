@@ -8,8 +8,6 @@ Ce projet se découpe en plusieurs itérations, au cours desquelles de nouvelles
 Le jeu fonctionne dans la **console de l’IDE**. Il affiche les informations et le joueur peut saisir des instructions telles que :  
 choisir la classe du personnage, nommer le personnage, lancer un dé, ou quitter le jeu.
 
-> Les règles fournies constituent une base de réflexion. Vous êtes libre d’ajouter des classes supplémentaires, de modifier les ennemis, ajuster les points de vie ou la répartition des ennemis pour personnaliser votre jeu.
-
 ---
 
 ## Table des matières
