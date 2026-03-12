@@ -145,6 +145,7 @@ Le projet est organisé autour des principales classes suivantes :
 
 ---
 
+
 ## 📌 Classes Principales
 
 ### **ui.Menu**
@@ -429,3 +430,111 @@ Le projet est organisé autour des principales classes suivantes :
 | attack            | int        |
 
 ---
+```mermaid
+classDiagram
+%% --- Classes de Structure et Logique ---
+class Main {
++main(args: String[])
+}
+class Menu {
+-Scanner scanner
++displayMainMenu() int
++createCharacter() Character
+}
+class Game {
+-Board board
+-Character player
+-Dice dice
+-Menu menu
+}
+class Board {
+-ArrayList~Cell~ cells
+}
+class Dice {
++roll() int
+}
+
+    %% --- Système de Cases (Cells) ---
+    class Cell {
+        <<abstract>>
+        +interact(Character character)
+        +toString() String
+    }
+    class EmptyCell {
+        +interact(Character character)
+    }
+    class EnemyCell {
+        -Enemy enemy
+    }
+    class ItemCell {
+        -ArrayList~OffensiveEquipment~ possibleEquipments
+        -ArrayList~Consumable~ possibleConsumables
+    }
+
+    %% --- Personnages et Ennemis ---
+    class Character {
+        <<abstract>>
+        #String name
+        #int life
+        #int attack
+        #int position
+        #OffensiveEquipment offensiveEquipment
+    }
+    class Warrior
+    class Wizard
+
+    class Enemy {
+        <<abstract>>
+        #String name
+        #int attack
+        #int life
+    }
+    class Goblin
+    class Sorcerer
+    class Dragon
+
+    %% --- Équipements et Consommables ---
+    class OffensiveEquipment {
+        <<abstract>>
+        #int attackBonus
+        #String name
+    }
+    class Weapon {
+        <<abstract>>
+    }
+    class Spell {
+        <<abstract>>
+    }
+    class Consumable {
+        <<abstract>>
+        #int healing
+    }
+
+    %% --- Spécialisations ---
+    class Mace
+    class Sword
+    class LightBold
+    class Fireball
+    class SmallHealthPotion
+    class BigHealthPotion
+
+    %% --- Héritages ---
+    Cell <|-- Warrior
+    Character <|-- Goblin
+    Enemy <|-- Dragon
+    OffensiveEquipment <|-- Spell
+    Weapon <|-- Sword
+    Spell <|-- Fireball
+    Consumable <|-- BigHealthPotion
+
+    %% --- Associations ---
+    Game "1" -- "1" Board
+    Game "1" -- "1" Character
+    Game "1" -- "1" Dice
+    Game "1" -- "1" Menu
+    Board "1" -- "*" Cell
+    EnemyCell "1" -- "1" Enemy
+    ItemCell "1" -- "*" OffensiveEquipment
+    ItemCell "1" -- "*" Consumable
+    Character "1" -- "0..1" OffensiveEquipment
+```
