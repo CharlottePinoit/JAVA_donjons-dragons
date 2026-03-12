@@ -58,6 +58,7 @@ public abstract class Enemy {
         this.life = life;
     }
 
+    public abstract String getAsciiArt();
     /**
      * Checks if the enemy is still alive.
      *

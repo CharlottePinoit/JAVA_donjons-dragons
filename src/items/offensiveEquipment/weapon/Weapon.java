@@ -8,7 +8,7 @@ import items.offensiveEquipment.OffensiveEquipment;
  * A weapon provides an attack bonus and is only compatible with {@link Warrior} characters.
  * </p>
  */
-public class Weapon extends OffensiveEquipment {
+public abstract class Weapon extends OffensiveEquipment {
     /**
      * Creates a new weapon with the specified attack bonus.
      *

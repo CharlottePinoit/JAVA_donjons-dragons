@@ -22,6 +22,15 @@ public class Sword extends Weapon {
         return character instanceof Warrior;
     }
 
+    @Override
+    public String getAsciiArt(){
+        return  "   /\\   \n" +
+                "   ||   \n" +
+                "   ||   \n" +
+                "--=||=--\n" +
+                "   ||   \n" +
+                "   \\/   \n";
+    }
     /**
      * Returns a string representation of the Sword.
      *

@@ -33,7 +33,9 @@ public class Menu{
         System.out.println("2 - Démarrer la partie");
         System.out.println("3 - Quitter le jeu");
         System.out.print("Votre choix : ");
-        return scanner.nextInt();
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        return choice;
     }
     /**
      * crée un perso en demandant à l'utilisateur le type et le nom.

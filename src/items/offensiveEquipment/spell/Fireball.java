@@ -25,6 +25,16 @@ public class Fireball extends Spell {
     public boolean isCompatibleWith(characters.Character character) {
         return character instanceof Wizard;
     }
+
+    @Override
+    public String getAsciiArt(){
+        return  "     )\\/(\n" +
+                "    /\\  /\\\n" +
+                "   /  \\/  \\\n" +
+                "  (        )\n" +
+                " (__________)\n";
+    }
+
     @Override
     public String toString() {
         return super.toString();

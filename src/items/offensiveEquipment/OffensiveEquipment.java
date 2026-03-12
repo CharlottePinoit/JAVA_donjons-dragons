@@ -60,6 +60,8 @@ public abstract class OffensiveEquipment {
      * @return {@code true} if the character can equip this item, otherwise {@code false}
      */
     public abstract boolean isCompatibleWith(characters.Character character);
+
+    public abstract String getAsciiArt();
     /**
      * Returns a string representation of the offensive equipment.
      *

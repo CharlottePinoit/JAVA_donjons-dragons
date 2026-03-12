@@ -13,6 +13,14 @@ public class SmallHealthPotion extends Consumable{
     public SmallHealthPotion() {
         super(2);
     }
+
+    @Override
+    public String getAsciiArt(){
+        return  "   ___   \n" +
+                "  /   \\  \n" +
+                " | *** | \n" +
+                "  \\___/  \n";
+    }
     /**
      * Returns a string representation of the SmallHealthPotion.
      *

@@ -129,7 +129,7 @@ public class Game {
                 System.out.println(e.getMessage());
                 player.setPosition(board.getSize());
             }
-            player.setPosition(newPosition);
+
             System.out.println("Vous êtes sur la case " + player.getPosition() + "/" + board.getSize());
 
             // Interaction avec la case actuelle

@@ -30,6 +30,7 @@ public class EnemyCell extends Cell {
      */
     @Override
     public void interact(Character character) {
+        System.out.println(enemy.getAsciiArt());
         System.out.println("Vous rencontrez un ennemi : " + enemy.toString());
 
         // Le perso attaque l'ennemi

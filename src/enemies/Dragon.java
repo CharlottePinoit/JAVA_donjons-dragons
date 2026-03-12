@@ -14,4 +14,16 @@ public class Dragon extends Enemy {
     public Dragon() {
         super("Dragon", 4, 15);
     }
+
+    @Override
+    public String getAsciiArt() {
+        return  "        ,     ,\n" +
+                "       /|     |\\\n" +
+                "    /( ( @ @ ) )\\  \n" +
+                "   / /\\  \\_/  /\\ \\\n" +
+                "  //  .-.-.-.  \\\\\n" +
+                " |(   | (=) |   )|\n" +
+                "  \\   ((\\=/))   /\n" +
+                "   \\|\\ V.....V |/\n";
+    }
 }

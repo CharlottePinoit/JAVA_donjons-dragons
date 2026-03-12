@@ -1,4 +1,6 @@
 package items.defensiveEquiment;
 
-public class DefensiveEquipment {
+public abstract class DefensiveEquipment {
+
+    public abstract String getAsciiArt();
 }

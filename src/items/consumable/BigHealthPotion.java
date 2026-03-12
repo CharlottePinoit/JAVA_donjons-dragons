@@ -14,6 +14,18 @@ public class BigHealthPotion extends Consumable{
     public BigHealthPotion() {
         super(5);
     }
+
+    @Override
+    public String getAsciiArt(){
+        return  "     ___     \n" +
+                "    /   \\    \n" +
+                "   /     \\   \n" +
+                "  |  ***  |  \n" +
+                "  | ***** |  \n" +
+                "  | ***** |  \n" +
+                "   \\_____/   \n";
+    }
+
     /**
      * Returns a string representation of the BigHealthPotion.
      *

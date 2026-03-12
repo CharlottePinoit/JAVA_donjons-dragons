@@ -25,6 +25,18 @@ public class LightBold extends Spell {
     public boolean isCompatibleWith(characters.Character character) {
         return character instanceof Wizard;
     }
+
+    @Override
+    public String getAsciiArt(){
+        return  "   __   \n" +
+                "  / /   \n" +
+                " / /    \n" +
+                " \\ \\    \n" +
+                "  \\ \\   \n" +
+                "  / /   \n" +
+                "  \\/    \n";
+    }
+
     @Override
     public String toString() {
         return super.toString();

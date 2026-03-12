@@ -1,4 +1,5 @@
 package items;
 
-public class Item {
+public abstract class Item {
+    public abstract String getAsciiArt();
 }

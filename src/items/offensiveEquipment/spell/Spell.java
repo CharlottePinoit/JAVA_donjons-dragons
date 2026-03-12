@@ -10,7 +10,7 @@ import items.offensiveEquipment.OffensiveEquipment;
  * by {@link Wizard} characters.
  * </p>
  */
-public class Spell extends OffensiveEquipment {
+public abstract class Spell extends OffensiveEquipment {
     /**
      * Creates a new Spell with the specified attack bonus.
      *

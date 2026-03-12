@@ -15,4 +15,11 @@ public class Goblin extends Enemy {
          */
         super("Gobelin", 1, 6);
     }
+    @Override
+    public String getAsciiArt() {
+        return  " /\\_/\\ \n" +
+                " (x x) \n" +
+                " /|_|\\ \n" +
+                "  / \\  \n";
+    }
 }

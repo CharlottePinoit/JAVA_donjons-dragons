@@ -21,6 +21,16 @@ public class Mace extends Weapon {
     public boolean isCompatibleWith(characters.Character character) {
         return character instanceof Warrior;
     }
+    @Override
+    public String getAsciiArt(){
+        return  "   **   \n" +
+                "  ****  \n" +
+                "  ****  \n" +
+                "   ||   \n" +
+                "   ||   \n" +
+                "   ||   \n" +
+                "   \\/   \n";
+    }
 
     /**
      * Returns a string representation of the Mace.

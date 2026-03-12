@@ -37,6 +37,8 @@ public abstract class Consumable {
     public void setHealing(int healing){
         this.healing = healing;
     }
+
+    public abstract String getAsciiArt();
     /**
      * Returns a string representation of the consumable.
      *

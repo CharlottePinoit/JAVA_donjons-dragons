@@ -15,4 +15,13 @@ public class Sorcerer extends Enemy {
     public Sorcerer() {
         super("Sorcier", 2, 9);
     }
+
+    @Override
+    public String getAsciiArt() {
+        return  "  /\\  \n" +
+                " /__\\ \n" +
+                " (x x) \n" +
+                " /||\\ \n" +
+                "  /\\  \n";
+    }
 }
