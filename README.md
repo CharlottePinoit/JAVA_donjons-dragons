@@ -286,4 +286,5 @@ Board "1" -- "*" Cell
 EnemyCell "1" -- "1" Enemy
 ItemCell "1" -- "1" OffensiveEquipment
 ItemCell "1" -- "1" Consumable
-Character "1" -- "0..1" OffensiveEquipment```
+Character "1" -- "0..1" OffensiveEquipment
+```
