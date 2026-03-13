@@ -6,7 +6,7 @@ out/
 .kotlin
 
 *.iml
-
+config.properties
 
 ### Eclipse ###
 .apt_generated

@@ -5,9 +5,26 @@ import characters.Character;
 
 public class DatabaseManager {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/dnd_game";
-    private static final String USER = "root";
-    private static final String PASSWORD = "root";
+    private static final String URL;
+    private static final String USER;
+    private static final String PASSWORD;
+
+    // Chargement des propriétés
+    static {
+        Properties props = new Properties();
+        try (InputStream input = DatabaseManager.class
+                .getClassLoader()
+                .getResourceAsStream("config.properties")) {
+
+            props.load(input);
+            URL      = props.getProperty("db.url");
+            USER     = props.getProperty("db.user");
+            PASSWORD = props.getProperty("db.password");
+
+        } catch (IOException e) {
+            throw new RuntimeException("Fichier config.properties introuvable : " + e.getMessage());
+        }
+    }
 
     // Ouvre une connexion à la BDD
     public static Connection getConnection() throws SQLException {
