@@ -159,119 +159,131 @@ Le projet est organisé autour des principales classes suivantes :
 
 ---
 ```mermaid
+
 classDiagram
 %% --- Classes de Structure et Logique ---
 class Main {
-+main(args: String[])
+    +main(args: String[]): void
 }
 class Menu {
--Scanner scanner
-+displayMainMenu() int
-+createCharacter() Character
+    +displayMainMenu(): int
+    +createCharacter(): Character
+    +characterMenu(character: Character): void
+    +promptDiceRoll(): void
+    +askReplay(): String
 }
+
 class Game {
--Board board
--Character player
--Dice dice
--Menu menu
+    -player: Character
+    +menu: Menu
+    +board: Board
+    +dice: Dice
+    +start(): void
+    -playGame(): void
 }
 class Board {
--ArrayList~Cell~ cells
+    -size: int {final} = 64
+    -cells: Map<Integer, Cell> {final}
+    +getSize(): int
+    +getCell(position: int): Cell
+    +checkPosition(position: int): void
 }
 class Dice {
-+roll() int
+    +roll(): int
+}
+class DatabaseManager {
+    +getConnection(): Connection
+    +testConnection(): void
+    +getHeroes(): void
+    +createHero(character: Character): void
+    +editHero(character: Character): void
 }
 
-    %% --- Système de Cases (Cells) ---
-    class Cell {
-        <<abstract>>
-        +interact(Character character)
-        +toString() String
-    }
-    class EmptyCell {
-        +interact(Character character)
-    }
-    class EnemyCell {
-        -Enemy enemy
-    }
-    class ItemCell {
-        -ArrayList~OffensiveEquipment~ possibleEquipments
-        -ArrayList~Consumable~ possibleConsumables
-    }
+%% --- Système de Cases (Cells) ---
+abstract class Cell {
+    +interact(character: Character): void
+}
+class EmptyCell extends Cell {}
+class EnemyCell extends Cell {
+    -enemy: Enemy
+}
+class ItemCell extends Cell {
+    -item: Object
+}
 
-    %% --- Personnages et Ennemis ---
-    class Character {
-        <<abstract>>
-        #String name
-        #int life
-        #int attack
-        #int position
-        #OffensiveEquipment offensiveEquipment
-    }
-    class Warrior
-    class Wizard
+%% --- Personnages et Ennemis ---
+abstract class Character {
+    -id: int
+    -life: int
+    -attack: int
+    -name: String
+    -position: int
+    -maxLife: int
+    -offensiveEquipment: OffensiveEquipment
+    +isAlive(): boolean
+    +equipOffensiveEquipment(equipment: OffensiveEquipment): void
+    +useConsumable(consumable: Consumable): void
+}
+class Warrior {}
+class Wizard {}
 
-    class Enemy {
-        <<abstract>>
-        #String name
-        #int attack
-        #int life
-    }
-    class Goblin
-    class Sorcerer
-    class Dragon
+abstract class Enemy {
+    #name: String
+    #attack: int
+    #life: int
+    +attack(character: Character): void
+    +isAlive(): boolean
+    +getAsciiArt(): String {abstract}
+}
+class Goblin {}
+class Sorcerer {}
+class Dragon {}
 
-    %% --- Équipements et Consommables ---
-    class OffensiveEquipment {
-        <<abstract>>
-        #int attackBonus
-        #String name
-    }
-    class Weapon {
-        <<abstract>>
-    }
-    class Spell {
-        <<abstract>>
-    }
-    class Consumable {
-        <<abstract>>
-        #int healing
-    }
+%% --- Équipements et Consommables ---
+abstract class OffensiveEquipment {
+    #attackBonus: int
+    #name: String
+    +isCompatibleWith(character: Character): boolean {abstract}
+    +getAsciiArt(): String {abstract}
+}
+class Weapon {}
+class Sword {}
+class Mace {}
+abstract class Spell {}
+class LightBold {}
+class Fireball {}
+abstract class Consumable {
+    #healing: int
+    +getAsciiArt(): String {abstract}
+}
+class BigHealthPotion {}
+class SmallHealthPotion {}
 
-    %% --- Spécialisations ---
-    class Mace
-    class Sword
-    class LightBold
-    class Fireball
-    class SmallHealthPotion
-    class BigHealthPotion
+%% --- Héritages ---
+Character <|-- Warrior
+Character <|-- Wizard
+Enemy <|-- Goblin
+Enemy <|-- Dragon
+Enemy <|-- Sorcerer
+OffensiveEquipment <|-- Spell
+OffensiveEquipment <|-- Weapon
+Weapon <|-- Sword
+Weapon <|-- Mace
+Spell <|-- Fireball
+Spell <|-- LightBold
+Consumable <|-- BigHealthPotion
+Consumable <|-- SmallHealthPotion
+Cell <|-- EnemyCell
+Cell <|-- EmptyCell
+Cell <|-- ItemCell
 
-    %% --- Héritages ---
-    Character <|-- Warrior
-    Character <|-- Wizard
-    Enemy <|-- Goblin
-    Enemy <|-- Dragon
-    Enemy <|-- Sorcerer
-    OffensiveEquipment <|-- Spell
-    OffensiveEquipment <|-- Weapon
-    Weapon <|-- Sword
-    Weapon <|-- Mace
-    Spell <|-- Fireball
-    Spell <|-- LightBold
-    Consumable <|-- BigHealthPotion
-    Consumable <|-- SmallHealthPotion
-    Cell <|-- EnemyCell
-    Cell <|-- EmptyCell
-    Cell <|-- ItemCell
-
-    %% --- Associations ---
-    Game "1" -- "1" Board
-    Game "1" -- "1" Character
-    Game "1" -- "1" Dice
-    Game "1" -- "1" Menu
-    Board "1" -- "*" Cell
-    EnemyCell "1" -- "1" Enemy
-    ItemCell "1" -- "*" OffensiveEquipment
-    ItemCell "1" -- "*" Consumable
-    Character "1" -- "0..1" OffensiveEquipment
-```
+%% --- Associations ---
+Game "1" -- "1" Board
+Game "1" -- "0..1" Character
+Game "1" -- "1" Dice
+Game "1" -- "1" Menu
+Board "1" -- "*" Cell
+EnemyCell "1" -- "1" Enemy
+ItemCell "1" -- "1" OffensiveEquipment
+ItemCell "1" -- "1" Consumable
+Character "1" -- "0..1" OffensiveEquipment```
