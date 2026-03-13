@@ -247,13 +247,22 @@ class Dice {
     class BigHealthPotion
 
     %% --- Héritages ---
-    Cell <|-- Warrior
-    Character <|-- Goblin
+    Character <|-- Warrior
+    Character <|-- Wizard
+    Enemy <|-- Goblin
     Enemy <|-- Dragon
+    Enemy <|-- Sorcerer
     OffensiveEquipment <|-- Spell
+    OffensiveEquipment <|-- Weapon
     Weapon <|-- Sword
+    Weapon <|-- Mace
     Spell <|-- Fireball
+    Spell <|-- LightBold
     Consumable <|-- BigHealthPotion
+    Consumable <|-- SmallHealthPotion
+    Cell <|-- EnemyCell
+    Cell <|-- EmptyCell
+    Cell <|-- ItemCell
 
     %% --- Associations ---
     Game "1" -- "1" Board
