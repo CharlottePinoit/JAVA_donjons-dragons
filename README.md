@@ -199,7 +199,7 @@ class DatabaseManager {
 }
 
 %% --- Système de Cases (Cells) ---
-class Cell <<abstract>> {
+class Cell {
     +interact(character: Character): void
 }
 class EmptyCell extends Cell {}
@@ -211,7 +211,7 @@ class ItemCell extends Cell {
 }
 
 %% --- Personnages et Ennemis ---
-class Character <<abstract>> {
+class Character {
     -id: int
     -life: int
     -attack: int
@@ -226,7 +226,7 @@ class Character <<abstract>> {
 class Warrior {}
 class Wizard {}
 
-class Enemy <<abstract>> {
+class Enemy {
     #name: String
     #attack: int
     #life: int
@@ -239,7 +239,7 @@ class Sorcerer {}
 class Dragon {}
 
 %% --- Équipements et Consommables ---
-class OffensiveEquipment <<abstract>> {
+class OffensiveEquipment {
     #attackBonus: int
     #name: String
     +isCompatibleWith(character: Character): boolean
@@ -248,10 +248,10 @@ class OffensiveEquipment <<abstract>> {
 class Weapon {}
 class Sword {}
 class Mace {}
-class Spell <<abstract>> {}
+class Spell {}
 class LightBold {}
 class Fireball {}
-class Consumable <<abstract>> {
+class Consumable {
     #healing: int
     +getAsciiArt(): String
 }
