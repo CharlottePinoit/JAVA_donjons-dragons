@@ -61,7 +61,7 @@ public class DatabaseManager {
             ps.setString(6, null);
             ps.executeUpdate();
 
-            // ✅ On récupère l'id auto-généré et on le stocke dans l'objet
+            //Récupère l'id auto-généré et le stocke dans l'objet
             ResultSet generatedKeys = ps.getGeneratedKeys();
             if (generatedKeys.next()) {
                 character.setId(generatedKeys.getInt(1));
@@ -73,7 +73,7 @@ public class DatabaseManager {
         }
     }
 
-    // Met à jour toutes les infos d'un personnage existant
+    // Met à jour toutes les infos d'un perso existant
     public static void editHero(Character character) {
         String query = "UPDATE `Character` SET LifePoints = ?, Strength = ?, OffensiveEquipment = ? WHERE Id = ?";
         try (Connection connection = getConnection();
