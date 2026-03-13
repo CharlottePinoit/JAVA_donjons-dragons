@@ -13,6 +13,9 @@ import items.offensiveEquipment.weapon.Mace;
 import items.offensiveEquipment.weapon.Sword;
 import items.offensiveEquipment.spell.LightBold;
 import items.offensiveEquipment.spell.Fireball;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 /**
@@ -37,58 +40,31 @@ public class Board {
     public Board() {
         this.cells = new HashMap<>();
 
-        // --- ENNEMIS ---
-        // Gobelins
-        int[] goblins = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30};
-        for (int pos : goblins) {
-            cells.put(pos, new EnemyCell(new Goblin()));
-        }
-        // Sorciers
-        int[] sorcerers = {10, 20, 25, 32, 35, 36, 37, 40, 44, 47};
-        for (int pos : sorcerers) {
-            cells.put(pos, new EnemyCell(new Sorcerer()));
-        }
-        // Dragons
-        int[] dragons = {45, 52, 56, 62};
-        for (int pos : dragons) {
-            cells.put(pos, new EnemyCell(new Dragon()));
-        }
+        //Crée une liste avec toutes les cellules dans l'ordre
+        ArrayList<Cell> cellList = new ArrayList<>();
 
-        // --- ITEMS ---
-        // Massues
-        int[] maces = {2, 5, 11, 22, 38};
-        for (int pos : maces) {
-            cells.put(pos, new ItemCell(new Mace()));
-        }
-        // Epées
-        int[] swords = {19, 26, 42, 53};
-        for (int pos : swords) {
-            cells.put(pos, new ItemCell(new Sword()));
-        }
-        // Sorts éclair
-        int[] lightBolts = {1, 4, 8, 17, 23};
-        for (int pos : lightBolts) {
-            cells.put(pos, new ItemCell(new LightBold()));
-        }
-        // Boules de feu
-        int[] fireballs = {48, 49};
-        for (int pos : fireballs) {
-            cells.put(pos, new ItemCell(new Fireball()));
-        }
-        // Potions standards
-        int[] smallPotions = {7, 13, 31, 33, 39, 43};
-        for (int pos : smallPotions) {
-            cells.put(pos, new ItemCell(new SmallHealthPotion()));
-        }
-        // Grandes potions
-        int[] bigPotions = {28, 41};
-        for (int pos : bigPotions) {
-            cells.put(pos, new ItemCell(new BigHealthPotion()));
-        }
+        //Ajoute les ennemies
+        for (int i = 0; i < 4;  i++) cellList.add(new EnemyCell(new Dragon()));
+        for (int i = 0; i < 10; i++) cellList.add(new EnemyCell(new Sorcerer()));
+        for (int i = 0; i < 10; i++) cellList.add(new EnemyCell(new Goblin()));
 
-        // Toutes les cases non définies sont vides
-        for (int i = 1; i <= size; i++) {
-            cells.putIfAbsent(i, new EmptyCell());
+        //Ajoute les items
+        for (int i = 0; i < 5; i++) cellList.add(new ItemCell(new Mace()));
+        for (int i = 0; i < 4; i++) cellList.add(new ItemCell(new Sword()));
+        for (int i = 0; i < 5; i++) cellList.add(new ItemCell(new LightBold()));
+        for (int i = 0; i < 2; i++) cellList.add(new ItemCell(new Fireball()));
+        for (int i = 0; i < 6; i++) cellList.add(new ItemCell(new SmallHealthPotion()));
+        for (int i = 0; i < 2; i++) cellList.add(new ItemCell(new BigHealthPotion()));
+
+        //Ajoute les cases vides
+        for (int i = 0; i < 16; i++) cellList.add(new EmptyCell());
+
+        //mélange aléatoirement
+        Collections.shuffle(cellList);
+
+        //Boucle pour mettre chaque cellule dans la Map avec sa position
+        for (int i = 0; i < size; i++) {
+            cells.put(i + 1, cellList.get(i));
         }
     }
 
