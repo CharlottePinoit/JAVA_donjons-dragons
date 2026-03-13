@@ -159,7 +159,6 @@ Le projet est organisé autour des principales classes suivantes :
 
 ---
 ```mermaid
-
 classDiagram
 %% --- Classes de Structure et Logique ---
 class Main {
@@ -182,8 +181,8 @@ class Game {
     -playGame(): void
 }
 class Board {
-    -size: int {final} = 64
-    -cells: Map<Integer, Cell> {final}
+    -size: int
+    -cells: Map<Integer, Cell>
     +getSize(): int
     +getCell(position: int): Cell
     +checkPosition(position: int): void
@@ -233,7 +232,7 @@ abstract class Enemy {
     #life: int
     +attack(character: Character): void
     +isAlive(): boolean
-    +getAsciiArt(): String {abstract}
+    +getAsciiArt(): String
 }
 class Goblin {}
 class Sorcerer {}
@@ -243,8 +242,8 @@ class Dragon {}
 abstract class OffensiveEquipment {
     #attackBonus: int
     #name: String
-    +isCompatibleWith(character: Character): boolean {abstract}
-    +getAsciiArt(): String {abstract}
+    +isCompatibleWith(character: Character): boolean
+    +getAsciiArt(): String
 }
 class Weapon {}
 class Sword {}
@@ -254,7 +253,7 @@ class LightBold {}
 class Fireball {}
 abstract class Consumable {
     #healing: int
-    +getAsciiArt(): String {abstract}
+    +getAsciiArt(): String
 }
 class BigHealthPotion {}
 class SmallHealthPotion {}
