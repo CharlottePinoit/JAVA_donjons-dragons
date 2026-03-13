@@ -1,4 +1,5 @@
 package board;
+import enemies.Boss;
 import exceptions.OutOfBoardException;
 import board.cell.Cell;
 import board.cell.EmptyCell;
@@ -66,6 +67,7 @@ public class Board {
         for (int i = 0; i < size; i++) {
             cells.put(i + 1, cellList.get(i));
         }
+        cells.put(size, new EnemyCell(new Boss()));
     }
 
     /**

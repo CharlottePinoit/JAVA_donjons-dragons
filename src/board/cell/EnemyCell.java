@@ -1,5 +1,6 @@
 package board.cell;
 import characters.Character;
+import enemies.Boss;
 import enemies.Enemy;
 /**
  * Represents a cell containing an enemy.
@@ -31,21 +32,38 @@ public class EnemyCell extends Cell {
     @Override
     public void interact(Character character) {
         System.out.println(enemy.getAsciiArt());
-        System.out.println("Vous rencontrez un ennemi : " + enemy.toString());
+        System.out.println("Vous rencontrez : " + enemy.toString());
+        //Si c'est le Boss, combat à mort
+        if (enemy instanceof Boss) {
+            while (enemy.isAlive() && character.isAlive()) {
+                enemy.setLife(Math.max(0, enemy.getLife() - character.getAttack()));
+                System.out.println(character.getName() + " attaque " + enemy.getName() + " ! Il reste " + enemy.getLife() + " PV à l'ennemi.");
 
-        // Le perso attaque l'ennemi
-        enemy.setLife(Math.max(0, enemy.getLife() - character.getAttack()));
-        System.out.println(character.getName() + " attaque " + enemy.getName() + " ! Il reste " + enemy.getLife() + " PV à l'ennemi.");
-
-        // Vérifie si l'ennemi est encore en vie
-        if (enemy.isAlive()) {
-            // L'ennemi riposte une fois
-            character.setLife(Math.max(0, character.getLife() - enemy.getAttack()));
-            System.out.println(enemy.getName() + " riposte et attaque " + character.getName() + " ! Il reste " + character.getLife() + " PV à " + character.getName() + ".");
-            System.out.println(enemy.getName() + " s'enfuit après avoir riposté.");
+                if (enemy.isAlive()) {
+                    character.setLife(Math.max(0, character.getLife() - enemy.getAttack()));
+                    System.out.println(enemy.getName() + " riposte et attaque " + character.getName() + " ! Il reste " + character.getLife() + " PV à " + character.getName() + ".");
+                }
+            }
+            if (!enemy.isAlive()) {
+                System.out.println(enemy.getName() + " est vaincu !");
+            }
+            //si c'est un autre enemy, combat avec fuite
         } else {
-            System.out.println(enemy.getName() + " est vaincu !");
+            enemy.setLife(Math.max(0, enemy.getLife() - character.getAttack()));
+            System.out.println(character.getName() + " attaque " + enemy.getName() + " ! Il reste " + enemy.getLife() + " PV à l'ennemi.");
+
+            if (enemy.isAlive()) {
+                character.setLife(Math.max(0, character.getLife() - enemy.getAttack()));
+                System.out.println(enemy.getName() + " riposte et attaque " + character.getName() + " ! Il reste " + character.getLife() + " PV à " + character.getName() + ".");
+                System.out.println(enemy.getName() + " s'enfuit après avoir riposté.");
+            } else {
+                System.out.println(enemy.getName() + " est vaincu !");
+            }
         }
+    }
+
+    public boolean isBossDefeated() {
+        return !enemy.isAlive();
     }
     /**
      * Returns a text representation of the enemy cell.
