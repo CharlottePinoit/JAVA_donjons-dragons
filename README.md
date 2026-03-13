@@ -202,11 +202,11 @@ class DatabaseManager {
 class Cell {
     +interact(character: Character): void
 }
-class EmptyCell extends Cell {}
-class EnemyCell extends Cell {
+class EmptyCell {}
+class EnemyCell {
     -enemy: Enemy
 }
-class ItemCell extends Cell {
+class ItemCell {
     -item: Object
 }
 
